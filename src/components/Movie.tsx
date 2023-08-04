@@ -4,12 +4,13 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Comment from './Comment';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useMutation, useQuery } from '@apollo/client';
 import { DELETE_MOVIE, GET_MOVIE_BY_NAME } from '../api/Movies';
 import { ReadOnlyRating } from './Rating';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 
 type IComment = {
     comment: string;
@@ -72,8 +73,9 @@ const Movie = () => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Edit</Button>
+                <Button size="small"><Link to="/editMovie" state={{ movie: movieDetails }}>Edit</Link></Button>
                 <Button size="small" onClick={handleDeleteClick}>Delete</Button>
+                <Button size="small"><Link to="/addComment" state={{ movieId: movieName }}>Add Comment</Link></Button>
             </CardActions>
             {
                 movieDetails?.comment?.length > 0 &&
@@ -84,7 +86,7 @@ const Movie = () => {
                     <Comment comments={movieDetails?.comment} />
                 </>
             }
-        </Card>
+        </Card >
     );
 }
 

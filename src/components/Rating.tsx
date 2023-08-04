@@ -5,3 +5,4 @@ type Props = {
 }
 
 export const ReadOnlyRating = (props: Props) => <Rating name="read-only" value={props.value} readOnly />
+

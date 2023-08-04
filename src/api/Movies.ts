@@ -50,3 +50,20 @@ mutation DeleteMovie($id: ID!) {
   deleteMovie(id: $id)
 }
 `
+
+export const EDIT_MOVIE = gql`
+mutation EditMovie($id: ID!, $movieName: String!, $releaseDate: String!, $duration: String!, $actors: [String]) {
+  editMovie(id: $id, movieName: $movieName, releaseDate: $releaseDate, duration: $duration, actors: $actors)
+}
+`
+
+export const ADD_COMMENT = gql`
+mutation AddMovieComment($movieId: ID!, $userName: String!, $comment: String!, $rating: Int!) {
+  addMovieComment(movieId: $movieId, userName: $userName, comment: $comment, rating: $rating) {
+    id
+    movieId
+    userName
+    comment
+    rating
+  }
+}`

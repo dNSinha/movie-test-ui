@@ -7,6 +7,8 @@ import Signup from "./components/Signup";
 import App from './App';
 import Movie from './components/Movie';
 import Error from './components/Error';
+import EditMovie from './components/EditMovie';
+import AddComment from './components/AddComment';
 
 export const routes = createBrowserRouter([
     {
@@ -34,6 +36,22 @@ export const routes = createBrowserRouter([
                 element: (
                     <Suspense fallback={<h1>Loading....</h1>}>
                         <AddMovie />
+                    </Suspense>
+                ),
+            },
+            {
+                path: "/editMovie",
+                element: (
+                    <Suspense fallback={<h1>Loading....</h1>}>
+                        <EditMovie />
+                    </Suspense>
+                ),
+            },
+            {
+                path: "/addComment",
+                element: (
+                    <Suspense fallback={<h1>Loading....</h1>}>
+                        <AddComment />
                     </Suspense>
                 ),
             },

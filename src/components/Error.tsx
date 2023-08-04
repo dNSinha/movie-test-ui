@@ -9,7 +9,7 @@ const primary = blue[300];
 const Error = () => {
     const navigate = useNavigate();
     const handleClick = () => {
-        navigate("/")
+        navigate("/movies")
     }
     return (
         <Box
